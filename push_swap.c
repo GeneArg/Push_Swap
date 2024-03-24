@@ -6,11 +6,24 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/24 16:15:29 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/24 16:36:39 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void 	add_back(t_stack **stack, t_stack *stack_new)
+{
+	int i;
+
+	i = 0;
+	if (!stack)
+		return ;
+	if (!*stack)
+		*stack = stack_new;
+	else
+		(ft_lstlast(*stack))->next = stack_new;
+}
 
 int mod_atoi(const char *str)
 {
@@ -73,8 +86,7 @@ t_stack *input_process(int argc, char **argv)
 	i = 1;
 	if(argc < 2)
 		error_print();
-	else
-	if(argc == 2)
+	else if(argc == 2)
 		a = quoted_string(argv);
 	else
 	{
