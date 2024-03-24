@@ -6,11 +6,38 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/24 15:59:19 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/24 16:15:29 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int mod_atoi(const char *str)
+{
+	int sign;
+	long long int i;
+
+	sign = 1;
+	i = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f' || *str == '\v' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			error_print();
+		i = i * 10 + (*str - '0');
+		str++;
+	}
+	if ((sign * i) > 2147483647 || (sign * i) < -2147483648)
+		error_print();
+	return (sign * i);
+}
 
 t_stack *quoted_string(char **argv)
 {
