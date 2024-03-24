@@ -14,5 +14,7 @@ typedef struct s_stack
 
 void	error_print(void);
 t_stack *input_process(int argc, char **argv);
+t_stack *quoted_string(char **argv);
+int mod_atoi(const char *str);
 
 #endif
