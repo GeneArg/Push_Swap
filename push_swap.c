@@ -6,11 +6,13 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/24 19:06:08 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/25 11:36:01 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
 
 int		check_if_sorted(t_stack *stack_a)
 {
@@ -188,5 +190,5 @@ int	main(int argc, char **argv)
 		error_print();
 	}
 	if(!check_if_sorted(a))
-		// TODO: Implement sorting algorithm here
+		sort_stack(&a);
 }
