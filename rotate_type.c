@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:39:25 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 13:28:25 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:51 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ int find_place_a(t_stack *stack_a, int num_push)
 {
 	int i;
 	t_stack *temp;
+	t_stack *last;
 
 	i = 1;
-	if (num_push < stack_a->num && num_push > (ft_lstlast(stack_a)).num)
+	last = ft_lstlast(stack_a);
+	if (num_push < stack_a->num && num_push > last->num)
 		i = 0;
 	else if (num_push > ft_max(stack_a) || num_push < ft_min(stack_a))
 		i = find_index(stack_a, ft_min(stack_a));
@@ -60,9 +62,11 @@ int find_place_b(t_stack *stack_b, int num_push)
 {
 	int i;
 	t_stack *temp;
+	t_stack *last;
 
 	i = 1;
-	if (num_push > stack_b->num && num_push < (ft_lstlast(stack_b)).num)
+	last = ft_lstlast(stack_b);
+	if (num_push > stack_b->num && num_push < last->num)
 		i = 0;
 	else if (num_push > ft_max(stack_b) || num_push < ft_min(stack_b))
 		i = find_index(stack_b, ft_max(stack_b));

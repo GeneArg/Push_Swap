@@ -6,12 +6,13 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 12:05:51 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 13:22:22 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:00:39 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// returns the last element of the stack
 t_stack *ft_lstlast(t_stack *stack)
 {
 	if (!stack)
@@ -21,6 +22,7 @@ t_stack *ft_lstlast(t_stack *stack)
 	return (stack);
 }
 
+// returns the size of the stack
 int ft_lstsize(t_stack *stack)
 {
 	size_t i;
@@ -34,6 +36,7 @@ int ft_lstsize(t_stack *stack)
 	return (i);
 }
 
+// returns the smallest number in the stack
 int ft_min(t_stack *stack_a)
 {
 	int i;
@@ -47,10 +50,11 @@ int ft_min(t_stack *stack_a)
 	return (i);
 }
 
+// returns the biggest number in the stack
 int ft_max(t_stack *stack_a)
 {
 	int i;
-	
+
 	i = stack_a->num;
 	while (stack_a)
 	{
