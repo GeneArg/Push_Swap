@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 14:09:49 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 17:19:37 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:39:52 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	error_print(void)
 {
-	ft_putstr_fd("Error\n", 2);
+	write(2, "Error\n", 6);
 	exit(1);
 }

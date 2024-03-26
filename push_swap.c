@@ -6,13 +6,11 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 19:01:01 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:42:21 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
 
 int		check_if_sorted(t_stack *stack_a)
 {
@@ -27,21 +25,6 @@ int		check_if_sorted(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (1);
-}
-
-void free_stack(t_stack **stack)
-{
-	t_stack *temp;
-
-	if (!stack)
-		return;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		(*stack)->num = 0;
-		free(*stack);
-		*stack = temp;
-	}
 }
 
 int	check_dup(t_stack *stack)
@@ -62,21 +45,6 @@ int	check_dup(t_stack *stack)
 	return (0);
 }
 
-void	free_str(char **str)
-{
-	char	*temp;
-
-	if (!str)
-		return ;
-	while (*str)
-	{
-		temp = *str;
-		str++;
-		free(temp);
-	}
-	*str = NULL;
-}
-
 // Function to create a new stack node with the given number
 t_stack *new_stack(int content)
 {
@@ -92,9 +60,6 @@ t_stack *new_stack(int content)
 
 void 	add_back(t_stack **stack, t_stack *stack_new)
 {
-	int i;
-
-	i = 0;
 	if (!stack)
 		return ;
 	if (!*stack)
@@ -191,4 +156,6 @@ int	main(int argc, char **argv)
 	}
 	if(!check_if_sorted(a))
 		sort_stack(&a);
+	free_stack(&a);
+	return (0);
 }

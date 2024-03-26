@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:35:45 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 18:16:16 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:54:35 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ t_stack **sort_a(t_stack **stack_a, t_stack **stack_b)
 				temp = temp->next;
 		}
 	}
+	return (stack_a);
 }
 
 // pushes to b until there are 3 elements in a.
@@ -107,5 +108,28 @@ void 	sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 			else
 				temp = temp->next;
 		}
+	}
+}
+
+// sort if there are 3 elements in stack a
+void	sort_3(t_stack **stack_a)
+{
+	if (ft_min(*stack_a) == (*stack_a)->num)
+	{
+		ft_rra(stack_a, 0);
+		ft_sa(stack_a, 0);
+	}
+	else if (ft_max(*stack_a) == (*stack_a)->num)
+	{
+		ft_ra(stack_a, 0);
+		if (!check_if_sorted(*stack_a))
+			ft_sa(stack_a, 0);
+	}
+	else
+	{
+		if (find_index(*stack_a, ft_max(*stack_a)) == 1)
+			ft_rra(stack_a, 0);
+		else
+			ft_sa(stack_a, 0);
 	}
 }
