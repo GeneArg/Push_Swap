@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:04:58 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:00:06 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 18:15:34 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,24 @@ int	check_args(char **argv)
 	if (!check_error(argv, 1, 0))
 		return (false);
 	return (true);
+}
+
+int	check_sign(char **argv)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if ((argv[i][j] == '-' || argv[i][j] == '+') && !ft_isdigit(argv[i][j + 1]))
+				error_print();
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

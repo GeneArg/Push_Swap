@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:41:44 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:50:19 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 18:14:09 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int ft_max(t_stack *stack_a);
 void	ft_sa(t_stack **stack_a, int n);
 void	ft_sb(t_stack **stack_b, int n);
 void 	ft_ss(t_stack **stack_a, t_stack **stack_b, int n);
+int	check_sign(char **argv);
 
 #endif

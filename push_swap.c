@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:42:21 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/26 18:16:35 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ t_stack *quoted_string(char **argv)
 // 1. To check if the number of input is less than 2.
 // 2. To check if the number of input is equal to 2 - quoted string.
 // 3. To check if the number of input is greater than 2 - list the arguments.
-
 t_stack *input_process(int argc, char **argv)
 {
 	t_stack *a;
@@ -130,7 +129,8 @@ t_stack *input_process(int argc, char **argv)
 	i = 1;
 	if(argc < 2)
 		error_print();
-	else if(argc == 2)
+	check_sign(argv);
+	if(argc == 2)
 		a = quoted_string(argv);
 	else
 	{
