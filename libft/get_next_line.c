@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_print.c                                      :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/24 14:09:49 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 11:39:52 by eagranat         ###   ########.fr       */
+/*   Created: 2024/03/27 12:32:32 by eagranat          #+#    #+#             */
+/*   Updated: 2024/03/27 12:33:23 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	error_print(void)
+char	*get_next_line(int fd)
 {
-	write(2, "Error\n", 6);
-	exit(1);
+	char	line[100];
+	char	buf;
+	int		i;
+	int		j;
+
+	if (fd < 0)
+		return (NULL);
+	j = read(fd, &buf, 1);
+	i = 0;
+	while (j > 0)
+	{
+		line[i] = buf;
+		i++;
+		if (buf == '\n')
+			break ;
+		j = read(fd, &buf, 1);
+	}
+	line[i] = '\0';
+	if (i == 0 && j <= 0)
+		return (NULL);
+	return (ft_strdup(line));
 }

@@ -6,14 +6,14 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 14:41:44 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 18:14:09 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:44:49 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../../libft/libft.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -87,5 +87,8 @@ void	ft_sa(t_stack **stack_a, int n);
 void	ft_sb(t_stack **stack_b, int n);
 void 	ft_ss(t_stack **stack_a, t_stack **stack_b, int n);
 int	check_sign(char **argv);
+void	case_rr(t_stack **a, t_stack **b, char *line);
+char	*checker_read_line(t_stack **a, t_stack **b, char *line);
+void	checker_validation(t_stack **a, t_stack **b, char *line);
 
 #endif

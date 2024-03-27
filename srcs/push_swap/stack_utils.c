@@ -1,17 +1,69 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 18:16:35 by eagranat         ###   ########.fr       */
+/*   Created: 2024/03/25 12:05:51 by eagranat          #+#    #+#             */
+/*   Updated: 2024/03/27 16:22:15 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// returns the last element of the stack
+t_stack *ft_lstlast(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+// returns the size of the stack
+int ft_lstsize(t_stack *stack)
+{
+	size_t i;
+
+	i = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
+}
+
+// returns the smallest number in the stack
+int ft_min(t_stack *stack_a)
+{
+	int i;
+	i = stack_a->num;
+	while (stack_a)
+	{
+		if (i > stack_a->num)
+			i = stack_a->num;
+		stack_a = stack_a->next;
+	}
+	return (i);
+}
+
+// returns the biggest number in the stack
+int ft_max(t_stack *stack_a)
+{
+	int i;
+
+	i = stack_a->num;
+	while (stack_a)
+	{
+		if (i < stack_a->num)
+			i = stack_a->num;
+		stack_a = stack_a->next;
+	}
+	return (i);
+}
 int		check_if_sorted(t_stack *stack_a)
 {
 	int i;
@@ -142,20 +194,4 @@ t_stack *input_process(int argc, char **argv)
 		}
 	}
 	return (a);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-
-	a = input_process(argc, argv);
-	if (!a || check_dup(a))
-	{
-		free_stack(&a);
-		error_print();
-	}
-	if(!check_if_sorted(a))
-		sort_stack(&a);
-	free_stack(&a);
-	return (0);
 }
