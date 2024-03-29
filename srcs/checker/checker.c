@@ -6,11 +6,21 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:35:51 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/27 17:17:54 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:33:16 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap/push_swap.h"
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
 
 void	case_rr(t_stack **a, t_stack **b, char *line)
 {
@@ -42,19 +52,26 @@ char	*checker_read_line(t_stack **a, t_stack **b, char *line)
 		ft_rr(a, b, 1);
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
 		ft_ss(a, b, 1);
-	else
+	else if (ft_strlen(line) > 1)
 		error_print();
+	if ((check_if_sorted(*a) && !*b) || ft_strlen(line) < 2)
+		return (ft_strdup("1"));
 	return (get_next_line(0));
 }
 
 void	checker_validation(t_stack **a, t_stack **b, char *line)
 {
-	char *temp;
+	char	*temp;
 
 	while (!check_if_sorted(*a) || (line && *line != '\n'))
 	{
 		temp = line;
 		line = checker_read_line(a, b, line);
+		if (ft_strcmp(line, "1") == 0)
+		{
+			free(temp);
+			break ;
+		}
 		free(temp);
 	}
 	if (*b || !check_if_sorted(*a))
@@ -64,7 +81,7 @@ void	checker_validation(t_stack **a, t_stack **b, char *line)
 	free(line);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;

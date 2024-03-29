@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:10:42 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:00:28 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:05:15 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_ra(t_stack **stack_a, int n)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -29,7 +29,7 @@ void	ft_ra(t_stack **stack_a, int n)
 
 void	ft_rb(t_stack **stack_b, int n)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack_b || !(*stack_b)->next)
 		return ;
@@ -52,7 +52,7 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b, int n)
 
 void	ft_rra(t_stack **stack_a, int n)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		i;
 
 	if (!*stack_a || !(*stack_a)->next)
@@ -77,7 +77,7 @@ void	ft_rra(t_stack **stack_a, int n)
 
 void	ft_rrb(t_stack **stack_b, int n)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		i;
 
 	if (!*stack_b || !(*stack_b)->next)

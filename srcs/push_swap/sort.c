@@ -6,20 +6,20 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:35:45 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:54:35 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:05:30 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//sorts the stack
+// sorts the stack
 void	sort_stack(t_stack **stack_a)
 {
-	t_stack *stack_b;
-	int	i;
+	t_stack	*stack_b;
+	int		i;
 
 	stack_b = NULL;
-	if(ft_lstsize(*stack_a) == 2)
+	if (ft_lstsize(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else
 	{
@@ -40,12 +40,12 @@ void	sort_stack(t_stack **stack_a)
 }
 
 // pushing back the elements from stack_b to stack_a until stack_b is empty
-t_stack **sort_a(t_stack **stack_a, t_stack **stack_b)
+t_stack	**sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int i;
-	t_stack *temp;
+	int		i;
+	t_stack	*temp;
 
-	while(*stack_b)
+	while (*stack_b)
 	{
 		temp = *stack_b;
 		i = rotate_type_ba(*stack_a, *stack_b);
@@ -69,7 +69,7 @@ t_stack **sort_a(t_stack **stack_a, t_stack **stack_b)
 // pushes to b until there are 3 elements in a.
 // while pushing to b, it sorts the stack b.
 // after that, it sorts the stack a.
-t_stack *sort_b(t_stack **stack_a)
+t_stack	*sort_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
 
@@ -86,12 +86,12 @@ t_stack *sort_b(t_stack **stack_a)
 }
 
 // sort and push stacks until there are 3 elements in stack a.
-void 	sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
+void	sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
 
-	while(ft_lstsize(*stack_a) > 3 && !check_if_sorted(*stack_a))
+	while (ft_lstsize(*stack_a) > 3 && !check_if_sorted(*stack_a))
 	{
 		temp = *stack_a;
 		i = rotate_type_ab(*stack_a, *stack_b);

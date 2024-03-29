@@ -6,11 +6,29 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 13:48:08 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 16:27:20 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:04:10 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_dup(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack)
+	{
+		temp = stack->next;
+		while (temp)
+		{
+			if (stack->num == temp->num)
+				return (1);
+			temp = temp->next;
+		}
+		stack = stack->next;
+	}
+	return (0);
+}
 
 // check if negative
 int	sign(int c)

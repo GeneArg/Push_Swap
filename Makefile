@@ -6,7 +6,7 @@
 #    By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/26 15:28:12 by eagranat          #+#    #+#              #
-#    Updated: 2024/03/27 21:56:21 by eagranat         ###   ########.fr        #
+#    Updated: 2024/03/28 14:04:58 by eagranat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIBFTDIR = libft/
 OBJ_DIR = obj/
 BONUS = checker
 SRC_DIR = srcs/
+HDR_FILES = $(wildcard srcs/push_swap/*.h)
 
 SRC_1 = srcs/push_swap/push_swap.c \
 
@@ -35,6 +36,7 @@ SRC_2 =	srcs/push_swap/case_ab.c \
 		srcs/push_swap/sort.c \
 		srcs/push_swap/stack_utils.c \
 		srcs/push_swap/swap.c \
+		srcs/push_swap/process.c \
 
 BONUS_SRC = srcs/checker/checker.c \
 
@@ -57,7 +59,7 @@ CYAN 		:= \033[1;36m
 
 
 
-${NAME}: ${OBJ_1} ${OBJ_2}
+${NAME}: ${OBJ_1} ${OBJ_2} ${HDR_FILES}
 	make -C $(LIBFTDIR)
 	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
 	@echo "$(GREEN)$(NAME) created[0m ✔️"
@@ -72,7 +74,11 @@ all: ${NAME} ${BONUS}
 bonus: ${BONUS}
 
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}
+	@for file in ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}; do \
+		if [ -f "$$file" ]; then \
+			rm -f "$$file"; \
+		fi \
+	done
 	@cd $(LIBFTDIR) && $(MAKE) clean
 	@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 

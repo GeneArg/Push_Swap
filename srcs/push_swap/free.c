@@ -6,18 +6,18 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 19:11:02 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 11:24:50 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:04:29 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack)
-		return;
+		return ;
 	while (*stack)
 	{
 		temp = (*stack)->next;

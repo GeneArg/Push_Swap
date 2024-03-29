@@ -6,14 +6,14 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 12:20:01 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:51:26 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:04:03 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // calculates the required amount of rotation for rra+rrb case
-int case_rrarrb_a(t_stack *a, t_stack *b, int c)
+int	case_rrarrb_a(t_stack *a, t_stack *b, int c)
 {
 	int	i;
 
@@ -26,9 +26,9 @@ int case_rrarrb_a(t_stack *a, t_stack *b, int c)
 }
 
 // calculates the required amount of rotation for ra+rb case
-int case_rarb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
+int	case_rarb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
 {
-	int i;
+	int	i;
 
 	i = find_place_a(stack_a, num_push);
 	if (i < find_index(stack_b, num_push))
@@ -39,7 +39,7 @@ int case_rarb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
 // calculates the required amount of rotation for ra+rrb case
 int	case_rarrb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (find_index(stack_b, num_push))
@@ -51,7 +51,7 @@ int	case_rarrb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
 // calculates the required amount of rotation for rra+rb case
 int	case_rrarb_a(t_stack *stack_a, t_stack *stack_b, int num_push)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (find_place_a(stack_a, num_push))

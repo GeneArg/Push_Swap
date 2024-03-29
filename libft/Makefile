@@ -55,10 +55,16 @@ soclean : clean
 	rem -f libft.so
 
 clean :
-	rm -f ${OBJS} ${OBJS_DEBUG} ${OBJS_BONUS}
+	@for file in ${OBJS} ${OBJS_DEBUG} ${OBJS_BONUS}; do \
+		if [ -f "$$file" ]; then \
+			rm -f "$$file"; \
+		fi \
+	done
 
 fclean : clean
-	rm -f ${NAME}
+	@if [ -f "${NAME}" ]; then \
+		rm -f ${NAME}; \
+	fi
 
 re : fclean all
 

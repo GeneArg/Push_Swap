@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 12:31:05 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/27 16:38:53 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:05:06 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		free_stack(&a);
 		error_print();
 	}
-	if(!check_if_sorted(a))
+	if (!check_if_sorted(a))
 		sort_stack(&a);
 	free_stack(&a);
 	return (0);

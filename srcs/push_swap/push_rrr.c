@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:54:07 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/25 19:01:04 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:05:01 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_pa(t_stack **stack_a, t_stack **stack_b, int n)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!*stack_b)
 		return ;

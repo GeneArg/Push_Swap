@@ -6,7 +6,7 @@
 /*   By: eagranat <eagranat@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 11:39:25 by eagranat          #+#    #+#             */
-/*   Updated: 2024/03/26 14:00:26 by eagranat         ###   ########.fr       */
+/*   Updated: 2024/03/28 12:05:25 by eagranat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	rotate_type_ab(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
 
 	temp = stack_a;
@@ -36,7 +36,7 @@ int	rotate_type_ab(t_stack *stack_a, t_stack *stack_b)
 
 int	rotate_type_ba(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
+	int		i;
 	t_stack	*temp;
 
 	temp = stack_b;
@@ -56,10 +56,10 @@ int	rotate_type_ba(t_stack *stack_a, t_stack *stack_b)
 	return (i);
 }
 
-int find_place_a(t_stack *stack_a, int num_push)
+int	find_place_a(t_stack *stack_a, int num_push)
 {
-	int i;
-	t_stack *temp;
+	int		i;
+	t_stack	*temp;
 
 	i = 1;
 	if (num_push < stack_a->num && num_push > (ft_lstlast(stack_a)->num))
@@ -79,11 +79,11 @@ int find_place_a(t_stack *stack_a, int num_push)
 	return (i);
 }
 
-int find_place_b(t_stack *stack_b, int num_push)
+int	find_place_b(t_stack *stack_b, int num_push)
 {
-	int i;
-	t_stack *temp;
-	t_stack *last;
+	int		i;
+	t_stack	*temp;
+	t_stack	*last;
 
 	i = 1;
 	last = ft_lstlast(stack_b);
@@ -104,9 +104,9 @@ int find_place_b(t_stack *stack_b, int num_push)
 	return (i);
 }
 
-int find_index(t_stack *a, int num)
+int	find_index(t_stack *a, int num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (a->num != num)
